@@ -8,9 +8,7 @@ var rightAnswers = 0;
 var numberOfQuestions = 10;
 var timer = document.querySelector("#timer");
 var timeLeft = 10;
-
-
-
+var score = document.querySelector("#score");
 
 //===========
 // FUNCTIONS
@@ -30,12 +28,10 @@ function setTimer() {
         if (timeLeft < 0) {
             clearInterval(timerInterval);
             main.classList.add("hidden");
-            alert("End of quiz. You got " + rightAnswers + " right, and " + (numberOfQuestions - rightAnswers) + " wrong.");
+            alert("You ran out of time. You got " + rightAnswers + " right, " + (currentQuestion - rightAnswers - 1) + " wrong, and left " + (numberOfQuestions - currentQuestion + 1) + " unanswered.");
         }
     }, 1000);
 }
-
-
 setTimer();
 
 
@@ -43,6 +39,7 @@ setTimer();
 // When the last question is answered it notifies the user of how many questions they anwered right and wrong.
     //  TO DO ---> It then asks if the user wants to save their score on the app.
 function continueQuiz() {
+    score.textContent = rightAnswers;
     var answeredQuestion = document.querySelector("#question" + currentQuestion);
     answeredQuestion.classList.add("hidden");
     currentQuestion++;
@@ -72,3 +69,8 @@ main.addEventListener("click", function(event) {
         continueQuiz();
     }
 })
+
+
+//========
+// ONLOAD
+//========
