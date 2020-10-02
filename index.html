@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
+    <main id="welcomePage">
+        <h1>Welcome, Friend!</h1>
+        <h2>Would you like to take a code quiz?</h2>
+        <div id="howAboutNow"></div><br>
+        <button id="yesButton">Yes!</button>
+        <button id="noButton">No!</button>
+        <button id="maybeButton">Maybe!</button>
+    </main>
+
+    <main id="countdownPage" class="hidden">
+        <h1 id="tooBad" class="hidden">Too bad!</h1>
+        <h1 id="countdownTimer">5</h1>
+    </main>
+
+    <main id="quizPage" class="hidden">
         <h1>Code Quiz</h1>
         <h2>Time Remaining: <span id="timer"></span></h2>
         <h2>Score: <span id="score">0</span></h2>
-        <br>
         <div id="question1">
             <h2>Question 1: Can you click on A?</h2>
             <button class="rightAnswer">A</button><br><br>
@@ -92,6 +105,26 @@
             <button>D</button>
         </div>
     </main>
+
+
+    <main id="resultsPage" class="hidden">
+        <h1>Quiz Over</h1>
+        <h2>Score: <span id="scoreResultsSpan"></span></h2>
+        <p>You answered <span id="rightAnswersSpan">0</span> right, <span id="wrongAnswersSpan">0</span> wrong, and left <span id="unansweredSpan">0</span> unanswered.</p>
+        
+        <p>Do you want to save your score?</p>
+        <form id="form">
+            <input id="input" placeholder="Enter your initials here">
+            <br><br>
+            <button id="submitButton">Save my score!</button>
+        </form>
+    </main>
+
+    <main id="highScoresPage" class="hidden">
+        <h1>High Scores</h1>
+        <ul id="highScoresList"></ul>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
