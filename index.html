@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <main id="welcomePage">
         <h1>Welcome, Friend!</h1>
         <h2>Would you like to take a code quiz?</h2>
@@ -106,7 +107,6 @@
         </div>
     </main>
 
-
     <main id="resultsPage" class="hidden">
         <h1>Quiz Over</h1>
         <h2>Score: <span id="scoreResultsSpan"></span></h2>
@@ -116,13 +116,16 @@
         <form id="form">
             <input id="input" placeholder="Enter your initials here">
             <br><br>
+            <!-- <button id="quizAgain1">Take the quiz again?</button> -->
             <button id="submitButton">Save my score!</button>
         </form>
     </main>
 
-    <main id="highScoresPage" class="hidden">
-        <h1>High Scores</h1>
-        <ul id="highScoresList"></ul>
+    <main id="hallOfFamePage" class="hidden">
+        <h1>Hall of Fame</h1>
+        <ul id="hallOfFameList"></ul>
+        <!-- <button id="quizAgain2">Take the quiz again?</button> -->
+        <button id="clearStorage">Clear Hall of Fame</button>
     </main>
 
     <script src="script.js"></script>
