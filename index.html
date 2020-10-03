@@ -26,7 +26,7 @@
         <h1>Code Quiz</h1>
         <h2>Time Remaining: <span id="timer"></span></h2>
         <h2>Score: <span id="score">0</span></h2>
-        <div id="question1">
+        <div id="question1" class="hidden">
             <h2>Question 1: Can you click on A?</h2>
             <button class="rightAnswer">A</button><br><br>
             <button>B</button><br><br>
@@ -116,15 +116,15 @@
         <form id="form">
             <input id="input" placeholder="Enter your initials here">
             <br><br>
-            <!-- <button id="quizAgain1">Take the quiz again?</button> -->
             <button id="submitButton">Save my score!</button>
         </form>
+        <button id="quizAgain1">Take the quiz again?</button>
     </main>
 
     <main id="hallOfFamePage" class="hidden">
         <h1>Hall of Fame</h1>
         <ul id="hallOfFameList"></ul>
-        <!-- <button id="quizAgain2">Take the quiz again?</button> -->
+        <button id="quizAgain2">Take the quiz again?</button>
         <button id="clearStorage">Clear Hall of Fame</button>
     </main>
 

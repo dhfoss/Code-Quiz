@@ -17,12 +17,13 @@ var tooBad = document.querySelector("#tooBad");
 
 // Quiz "Page"
 var quizPage = document.querySelector("#quizPage");
-var currentQuestion = 1;
-var rightAnswers = 0;
-var numberOfQuestions = 10;
+var question1 = document.querySelector("#question1");
+var currentQuestion;
+var rightAnswers;
+var numberOfQuestions;
 var timer = document.querySelector("#timer");
 //Time left is only 10 for testing purpuses. Dont forget to change!
-var timeLeft = 10;
+var timeLeft;
 var score = document.querySelector("#score");
 
 
@@ -42,6 +43,7 @@ function setCountdown() {
             clearInterval(timerInterval);
             countdownPage.classList.add("hidden");
             quizPage.classList.remove("hidden");
+            question1.classList.remove("hidden");
             setTimer();
         }
     }, 1000);
@@ -50,6 +52,15 @@ function setCountdown() {
 // Game timer function.  This will cound down how much time the user has left to finish the quiz.
 // If the user finishes the quiz before the timer runs out, the timer will stop.
 function setTimer() {
+    timeLeft = 10;
+    currentQuestion = 1;
+    rightAnswers = 0;
+    numberOfQuestions = 10;
+
+    score.textContent = rightAnswers;
+
+
+
     timer.textContent = timeLeft;
     var timerInterval = setInterval(function() {
         timeLeft--;
@@ -58,6 +69,8 @@ function setTimer() {
             clearInterval(timerInterval);
         }
         if (timeLeft < 0) {
+            var lastUnansweredQuestion = document.querySelector("#question" + currentQuestion);
+            lastUnansweredQuestion.classList.add("hidden");
             clearInterval(timerInterval);
             displayResultsPage();
         }
@@ -219,19 +232,19 @@ clearStorageButton.addEventListener("click", function() {
     hallOfFameList.classList.add("hidden");
 });
 
-// quizAgainButton1.addEventListener("click", function() {
-//     resultsPage.classList.add("hidden");
-//     countdownPage.classList.remove("hidden");
-//     tooBad.classList.add("hidden");
-//     setCountdown();
-// });
+quizAgainButton1.addEventListener("click", function() {
+    resultsPage.classList.add("hidden");
+    countdownPage.classList.remove("hidden");
+    tooBad.classList.add("hidden");
+    setCountdown();
+});
 
-// quizAgainButton2.addEventListener("click", function() {
-//     hallOfFamePage.classList.add("hidden");
-//     countdownPage.classList.remove("hidden");
-//     tooBad.classList.add("hidden");
-//     setCountdown();
-// });
+quizAgainButton2.addEventListener("click", function() {
+    hallOfFamePage.classList.add("hidden");
+    countdownPage.classList.remove("hidden");
+    tooBad.classList.add("hidden");
+    setCountdown();
+});
 //========
 // ONLOAD
 //========
