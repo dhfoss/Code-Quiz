@@ -26,13 +26,28 @@ var timer = document.querySelector("#timer");
 var timeLeft;
 var score = document.querySelector("#score");
 
+// Results "Page"
+var resultsPage = document.querySelector("#resultsPage");
+var scoreResultsSpan = document.querySelector("#scoreResultsSpan");
+var rightAnswersSpan = document.querySelector("#rightAnswersSpan");
+var wrongAnswersSpan = document.querySelector("#wrongAnswersSpan");
+var unansweredSpan = document.querySelector("#unansweredSpan");
+var form = document.querySelector("#form");
+var input = document.querySelector("#input");
+var quizAgainButton1 = document.querySelector("#quizAgain1");
+
+//Hall of Fame "Page"
+var hallOfFamePage = document.querySelector("#hallOfFamePage");
+var hallOfFameList = document.querySelector("#hallOfFameList");
+var clearStorageButton = document.querySelector("#clearStorage");
+var quizAgainButton2 = document.querySelector("#quizAgain2");
 
 
 //===========
 // FUNCTIONS
 //===========
 
-
+// This counts down from 5, and then sends the user to the timed quiz
 function setCountdown() {
     var countdownTimeLeft = 5;
     countdownTimer.textContent = countdownTimeLeft;
@@ -56,11 +71,7 @@ function setTimer() {
     currentQuestion = 1;
     rightAnswers = 0;
     numberOfQuestions = 10;
-
     score.textContent = rightAnswers;
-
-
-
     timer.textContent = timeLeft;
     var timerInterval = setInterval(function() {
         timeLeft--;
@@ -77,21 +88,6 @@ function setTimer() {
     }, 1000);
 }
 
-
-
-function displayResultsPage() {
-    quizPage.classList.add("hidden");
-    resultsPage.classList.remove("hidden");
-    scoreResultsSpan.textContent = rightAnswers;
-    rightAnswersSpan.textContent = rightAnswers;
-    wrongAnswersSpan.textContent = currentQuestion - rightAnswers - 1;
-    unansweredSpan.textContent = numberOfQuestions - currentQuestion + 1;
-}
-
-
-
-
-
 // Function to continue the quiz. It will advance the user to the next question when they answer a question.
 // When the last question is answered it notifies the user of how many questions they anwered right and wrong.
 function continueQuiz() {
@@ -107,12 +103,21 @@ function continueQuiz() {
     }
 }
 
+// This shows the user their score, along with how many questions they answered wrong, right, and left unanswered.
+function displayResultsPage() {
+    quizPage.classList.add("hidden");
+    resultsPage.classList.remove("hidden");
+    scoreResultsSpan.textContent = rightAnswers;
+    rightAnswersSpan.textContent = rightAnswers;
+    wrongAnswersSpan.textContent = currentQuestion - rightAnswers - 1;
+    unansweredSpan.textContent = numberOfQuestions - currentQuestion + 1;
+}
 
 //=================
 // EVENT LISTENERS
 //=================
 
-//This detects if the user clicks a button. If they answered right, their number of right answers is updated.
+// This detects if the user clicks an answer button during the quiz. If they answered right, their number of right answers is updated.
     //To do! Subtract time if answer is wrong.
 quizPage.addEventListener("click", function(event) {
     var button = event.target;
@@ -121,7 +126,10 @@ quizPage.addEventListener("click", function(event) {
         rightAnswers++;
     }
     if (rightAnswer != "rightAnswer") {
-        timeLeft = timeLeft -5;
+        timeLeft -= 5;
+        if (timeLeft < 0) {
+            timeLeft = 0;
+        }
         timer.textContent = timeLeft;
     }
     if (button.matches("button")) {
@@ -129,42 +137,10 @@ quizPage.addEventListener("click", function(event) {
     }
 })
 
-
-
-
-
-
-
-// Results "Page"
-var resultsPage = document.querySelector("#resultsPage");
-var scoreResultsSpan = document.querySelector("#scoreResultsSpan");
-var rightAnswersSpan = document.querySelector("#rightAnswersSpan");
-var wrongAnswersSpan = document.querySelector("#wrongAnswersSpan");
-var unansweredSpan = document.querySelector("#unansweredSpan");
-var form = document.querySelector("#form");
-var input = document.querySelector("#input");
-var quizAgainButton1 = document.querySelector("#quizAgain1");
-
-
-
-
-//Hall of Fame "Page"
-var hallOfFamePage = document.querySelector("#hallOfFamePage");
-var hallOfFameList = document.querySelector("#hallOfFameList");
-var clearStorageButton = document.querySelector("#clearStorage");
-var quizAgainButton2 = document.querySelector("#quizAgain2");
-
-
-
-
-
-
-
-
+// This detects if the form is submitted. It gives the user the option to save their score. If they say yes, it takes them to the Hall of Fame
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     
-
     var hallOfFameStorage = localStorage.getItem("Hall of Fame");
     if (hallOfFameStorage === null) {
         hallOfFame = [];
@@ -172,7 +148,7 @@ form.addEventListener("submit", function(event) {
         var hallOfFame = JSON.parse(hallOfFameStorage);
     }
     var initials = input.value;
-    hallOfFame.push(initials);
+    hallOfFame.push(initials + " - Score: " + rightAnswers);
 
     for (i = 0; i < hallOfFame.length; i++) {
         var liEl = document.createElement("li");
@@ -185,29 +161,7 @@ form.addEventListener("submit", function(event) {
     hallOfFamePage.classList.remove("hidden");
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// The following three listeners are for the buttons on the welcome page.
 yesButton.addEventListener("click", function() {
     welcomePage.classList.add("hidden");
     countdownPage.classList.remove("hidden");
@@ -227,24 +181,8 @@ maybeButton.addEventListener("click", function() {
     howAboutNow.append(annoyingSpan);
 })
 
+// This button clears the Hall of Fame
 clearStorageButton.addEventListener("click", function() {
     localStorage.removeItem("Hall of Fame");
     hallOfFameList.classList.add("hidden");
 });
-
-quizAgainButton1.addEventListener("click", function() {
-    resultsPage.classList.add("hidden");
-    countdownPage.classList.remove("hidden");
-    tooBad.classList.add("hidden");
-    setCountdown();
-});
-
-quizAgainButton2.addEventListener("click", function() {
-    hallOfFamePage.classList.add("hidden");
-    countdownPage.classList.remove("hidden");
-    tooBad.classList.add("hidden");
-    setCountdown();
-});
-//========
-// ONLOAD
-//========
