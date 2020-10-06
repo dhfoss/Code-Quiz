@@ -5,129 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
 
-    <main id="welcomePage">
-        <h1>Welcome, Friend!</h1>
-        <h2>Would you like to take a code quiz?</h2>
-        <div id="howAboutNow"></div><br>
-        <button id="yesButton">Yes!</button>
-        <button id="noButton">No!</button>
-        <button id="maybeButton">Maybe!</button>
-    </main>
-
-    <main id="countdownPage" class="hidden">
-        <h1 id="tooBad" class="hidden">Too bad!</h1>
-        <h1 id="countdownTimer">5</h1>
-    </main>
-
-    <main id="quizPage" class="hidden">
-        <h1>Code Quiz</h1>
-        <h2>Time Remaining: <span id="timer"></span></h2>
-        <h2>Score: <span id="score">0</span></h2>
-        <div id="question1" class="hidden">
-            <h2>Question 1: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="container col"></div>
         </div>
 
-        <div id="question2" class="hidden">
-            <h2>Question 2: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
+        <div class="row">
+            <div class="col">
+                <main id="welcomePage" class="container bg-light border border-dark p-3">
+                    <h1>Welcome, Friend!</h1>
+                    <h2>Would you like to take a code quiz?</h2>
+                    <div id="howAboutNow"></div><br>
+                    <button id="yesButton">Yes!</button>
+                    <button id="noButton">No!</button>
+                    <button id="maybeButton">Maybe!</button>
+                </main>
+
+                <main id="countdownPage" class="hidden container bg-light border border-dark p-3">
+                    <h1 id="tooBad" class="hidden text-center">Too bad!</h1>
+                    <h1 id="countdownTimer" class="display-1 text-center">5</h1>
+                </main>
+
+                <main id="quizPage" class="hidden container bg-light border border-dark p-3">
+                    <h1>Code Quiz</h1>
+                    <h2>Time Remaining: <span id="timer"></span></h2>
+                    <h2>Score: <span id="score">0</span></h2>
+                    <div id="question1" class="hidden">
+                        <p>Question 1: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question2" class="hidden">
+                        <p>Question 2: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question3" class="hidden">
+                        <p>Question 3: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question4" class="hidden">
+                        <p>Question 4: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question5" class="hidden">
+                        <p>Question 5: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question6" class="hidden">
+                        <p>Question 6: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question7" class="hidden">
+                        <p>Question 7: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question8" class="hidden">
+                        <p>Question 8: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question9" class="hidden">
+                        <p>Question 9: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+
+                    <div id="question10" class="hidden">
+                        <p>Question 10: Can you click on A?</p>
+                        <button class="rightAnswer">A</button><br><br>
+                        <button>B</button><br><br>
+                        <button>C</button><br><br>
+                        <button>D</button>
+                    </div>
+                </main>
+
+                <main id="resultsPage" class="hidden container bg-light border border-dark p-3">
+                    <h1>Quiz Over</h1>
+                    <h2>Score: <span id="scoreResultsSpan"></span></h2>
+                    <p>You answered <span id="rightAnswersSpan">0</span> right, <span id="wrongAnswersSpan">0</span> wrong, and left <span id="unansweredSpan">0</span> unanswered.</p>
+                    
+                    <p>Do you want to save your score?</p>
+                    <form id="form">
+                        <input id="input" placeholder="Enter your initials here">
+                        <br><br>
+                        <button id="submitButton">Save my score!</button>
+                    </form>
+                    <button id="seeHallOfFame" class="mt-3">Continue to Hall of Fame</button>
+                </main>
+
+                <main id="hallOfFamePage" class="hidden container bg-light border border-dark p-3">
+                    <h1>Hall of Fame</h1>
+                    <ul id="hallOfFameList"></ul>
+                    <button id="clearStorage">Clear Hall of Fame</button>
+                </main>
+
+            </div>
         </div>
 
-        <div id="question3" class="hidden">
-            <h2>Question 3: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
+        <div class="row">
+            <div class="container col"></div>
         </div>
 
-        <div id="question4" class="hidden">
-            <h2>Question 4: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
-        </div>
-
-        <div id="question5" class="hidden">
-            <h2>Question 5: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
-        </div>
-
-        <div id="question6" class="hidden">
-            <h2>Question 6: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
-        </div>
-
-        <div id="question7" class="hidden">
-            <h2>Question 7: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
-        </div>
-
-        <div id="question8" class="hidden">
-            <h2>Question 8: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
-        </div>
-
-        <div id="question9" class="hidden">
-            <h2>Question 9: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
-        </div>
-
-        <div id="question10" class="hidden">
-            <h2>Question 10: Can you click on A?</h2>
-            <button class="rightAnswer">A</button><br><br>
-            <button>B</button><br><br>
-            <button>C</button><br><br>
-            <button>D</button>
-        </div>
-    </main>
-
-    <main id="resultsPage" class="hidden">
-        <h1>Quiz Over</h1>
-        <h2>Score: <span id="scoreResultsSpan"></span></h2>
-        <p>You answered <span id="rightAnswersSpan">0</span> right, <span id="wrongAnswersSpan">0</span> wrong, and left <span id="unansweredSpan">0</span> unanswered.</p>
-        
-        <p>Do you want to save your score?</p>
-        <form id="form">
-            <input id="input" placeholder="Enter your initials here">
-            <br><br>
-            <button id="submitButton">Save my score!</button>
-        </form>
-        <!-- <button id="quizAgain1">Take the quiz again?</button> -->
-    </main>
-
-    <main id="hallOfFamePage" class="hidden">
-        <h1>Hall of Fame</h1>
-        <ul id="hallOfFameList"></ul>
-        <!-- <button id="quizAgain2">Take the quiz again?</button> -->
-        <button id="clearStorage">Clear Hall of Fame</button>
-    </main>
+    </div>
 
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -35,6 +35,7 @@ var unansweredSpan = document.querySelector("#unansweredSpan");
 var form = document.querySelector("#form");
 var input = document.querySelector("#input");
 var quizAgainButton1 = document.querySelector("#quizAgain1");
+var seeHallOfFameButton = document.querySelector("#seeHallOfFame");
 
 //Hall of Fame "Page"
 var hallOfFamePage = document.querySelector("#hallOfFamePage");
@@ -120,35 +121,46 @@ function displayResultsPage() {
 // This detects if the user clicks an answer button during the quiz. If they answered right, their number of right answers is updated.
     //To do! Subtract time if answer is wrong.
 quizPage.addEventListener("click", function(event) {
+        
     var button = event.target;
-    var rightAnswer = button.classList;
-    if (rightAnswer == "rightAnswer") {
-        rightAnswers++;
-    }
-    if (rightAnswer != "rightAnswer") {
-        timeLeft -= 5;
-        if (timeLeft < 0) {
-            timeLeft = 0;
+
+    if (button.tagName == "BUTTON") {
+        var rightAnswer = button.classList;
+        if (rightAnswer == "rightAnswer") {
+            rightAnswers++;
         }
-        timer.textContent = timeLeft;
-    }
-    if (button.matches("button")) {
-        continueQuiz();
+        if (rightAnswer != "rightAnswer") {
+            timeLeft -= 5;
+            if (timeLeft < 0) {
+                timeLeft = 0;
+            }
+            timer.textContent = timeLeft;
+        }
+        if (button.matches("button")) {
+            continueQuiz();
+        }
+    
+
     }
 })
 
-// This detects if the form is submitted. It gives the user the option to save their score. If they say yes, it takes them to the Hall of Fame
+// This detects if the form is submitted. It gives the user the option to save their score. If they say yes, it takes them to the Hall of Fame.
+// It prevents the user from submitting nothing in the form.
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    
+    var initials = input.value;
+    if (initials === "") {
+        alert("Invalid Entry");
+        return;
+    }
     var hallOfFameStorage = localStorage.getItem("Hall of Fame");
     if (hallOfFameStorage === null) {
         hallOfFame = [];
     } else {
         var hallOfFame = JSON.parse(hallOfFameStorage);
     }
-    var initials = input.value;
-    hallOfFame.push(initials + " - Score: " + rightAnswers);
+    var trimInitials = initials.trim();
+    hallOfFame.push(trimInitials + " - Score: " + rightAnswers);
 
     for (i = 0; i < hallOfFame.length; i++) {
         var liEl = document.createElement("li");
@@ -159,6 +171,25 @@ form.addEventListener("submit", function(event) {
     localStorage.setItem("Hall of Fame", hallOfFameString);
     resultsPage.classList.add("hidden");
     hallOfFamePage.classList.remove("hidden");
+})
+
+// If the user wishes to see the high scores without saving their own, they can click this button.
+seeHallOfFameButton.addEventListener("click", function() {
+    resultsPage.classList.add("hidden");
+    hallOfFamePage.classList.remove("hidden");
+    var hallOfFameStorage = localStorage.getItem("Hall of Fame");
+    if (hallOfFameStorage === null) {
+        hallOfFame = [];
+    } else {
+        var hallOfFame = JSON.parse(hallOfFameStorage);
+    }
+    for (i = 0; i < hallOfFame.length; i++) {
+        var liEl = document.createElement("li");
+        liEl.textContent = hallOfFame[i];
+        hallOfFameList.append(liEl);
+    }
+    var hallOfFameString = JSON.stringify(hallOfFame);
+    localStorage.setItem("Hall of Fame", hallOfFameString);
 })
 
 // The following three listeners are for the buttons on the welcome page.
