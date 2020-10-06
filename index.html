@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
@@ -16,6 +16,7 @@
 
         <div class="row">
             <div class="col">
+                <!--The Welcome "page"-->
                 <main id="welcomePage" class="container bg-light border border-dark p-3">
                     <h1>Welcome, Friend!</h1>
                     <h2>Would you like to take a code quiz?</h2>
@@ -25,96 +26,102 @@
                     <button id="maybeButton">Maybe!</button>
                 </main>
 
+                <!--The Countdown "page"-->
                 <main id="countdownPage" class="hidden container bg-light border border-dark p-3">
                     <h1 id="tooBad" class="hidden text-center">Too bad!</h1>
                     <h1 id="countdownTimer" class="display-1 text-center">5</h1>
                 </main>
 
+                <!--The Quiz "Page"-->
+                <!--The Title, Timer, and Score-->
                 <main id="quizPage" class="hidden container bg-light border border-dark p-3">
                     <h1>Code Quiz</h1>
                     <h2>Time Remaining: <span id="timer"></span></h2>
                     <h2>Score: <span id="score">0</span></h2>
-                    <div id="question1" class="hidden">
+
+                    <!--The questions-->
+                    <section id="question1" class="hidden">
                         <p>Question 1: Which function do you use to generate a random number?</p>
                         <button>math.random()</button><br><br>
                         <button class="rightAnswer">Math.random()</button><br><br>
                         <button>math.floor()</button><br><br>
                         <button>Random.Math.random.math()</button>
-                    </div>
-
-                    <div id="question2" class="hidden">
+                    </section>
+                    
+                    <section id="question2" class="hidden">
                         <p>Question 2: Which symbol begins statment to create a jQuery object?</p>
                         <button class="rightAnswer">$</button><br><br>
                         <button>%</button><br><br>
                         <button>{</button><br><br>
                         <button>@</button>
-                    </div>
+                    </section>
 
-                    <div id="question3" class="hidden">
+                    <section id="question3" class="hidden">
                         <p>Question 3: Which of the following are not a semantic tag?</p>
                         <button>header</button><br><br>
                         <button>section</button><br><br>
                         <button>main</button><br><br>
                         <button class="rightAnswer">form</button>
-                    </div>
+                    </section>
 
-                    <div id="question4" class="hidden">
+                    <section id="question4" class="hidden">
                         <p>Question 4: Which brackets enclose an array?</p>
                         <button>| |</button><br><br>
                         <button>( )</button><br><br>
                         <button class="rightAnswer">[ ]</button><br><br>
                         <button>{ }</button>
-                    </div>
+                    </section>
 
-                    <div id="question5" class="hidden">
+                    <section id="question5" class="hidden">
                         <p>Question 5: Which symbol or symbols stand for strict equlity?</p>
                         <button>=</button><br><br>
                         <button>==</button><br><br>
                         <button class="rightAnswer">===</button><br><br>
                         <button>====</button>
-                    </div>
+                    </section>
 
-                    <div id="question6" class="hidden">
+                    <section id="question6" class="hidden">
                         <p>Question 6: Which event triggers as soon as a user clicks on a listener?</p>
                         <button class="rightAnswer">mousedown</button><br><br>
                         <button>mouseup</button><br><br>
                         <button>mouseover</button><br><br>
                         <button>mousemouse</button>
-                    </div>
+                    </section>
 
-                    <div id="question7" class="hidden">
+                    <section id="question7" class="hidden">
                         <p>Question 7: Which method stops a timer?</p>
                         <button>setInterval()</button><br><br>
                         <button class="rightAnswer">clearInterval()</button><br><br>
                         <button>setTimeout()</button><br><br>
                         <button>stopTimeout()</button>
-                    </div>
+                    </section>
 
-                    <div id="question8" class="hidden">
+                    <section id="question8" class="hidden">
                         <p>Question 8: Which of the following is a string?</p>
                         <button>75</button><br><br>
                         <button>true</button><br><br>
                         <button class="rightAnswer">"false"</button><br><br>
                         <button>false</button>
-                    </div>
+                    </section>
 
-                    <div id="question9" class="hidden">
+                    <section id="question9" class="hidden">
                         <p>Question 9: What dos NaN stand for?</p>
                         <button class="rightAnswer">Not a number</button><br><br>
                         <button>Never ask nimrods</button><br><br>
                         <button>Not another notification</button><br><br>
                         <button>Not a non-number</button>
-                    </div>
+                    </section>
 
-                    <div id="question10" class="hidden">
+                    <section id="question10" class="hidden">
                         <p>Question 10: Who invented JavaScript?</p>
                         <button>Ghengis Khan</button><br><br>
                         <button>Johnny Depp</button><br><br>
                         <button>Paul Bunyan</button><br><br>
                         <button class="rightAnswer">None of the above</button>
-                    </div>
+                    </section>
                 </main>
 
+                <!--The Results "Page"-->
                 <main id="resultsPage" class="hidden container bg-light border border-dark p-3">
                     <h1>Quiz Over</h1>
                     <h2>Score: <span id="scoreResultsSpan"></span></h2>
@@ -129,6 +136,7 @@
                     <button id="seeHallOfFame" class="mt-3">Continue to Hall of Fame</button>
                 </main>
 
+                <!--The Hall of Fame "Page"-->
                 <main id="hallOfFamePage" class="hidden container bg-light border border-dark p-3">
                     <h1>Hall of Fame</h1>
                     <ul id="hallOfFameList"></ul>
@@ -144,7 +152,7 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="assets/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
