@@ -22,7 +22,6 @@ var currentQuestion;
 var rightAnswers;
 var numberOfQuestions;
 var timer = document.querySelector("#timer");
-//Time left is only 10 for testing purpuses. Dont forget to change!
 var timeLeft;
 var score = document.querySelector("#score");
 
@@ -68,7 +67,7 @@ function setCountdown() {
 // Game timer function.  This will cound down how much time the user has left to finish the quiz.
 // If the user finishes the quiz before the timer runs out, the timer will stop.
 function setTimer() {
-    timeLeft = 10;
+    timeLeft = 60;
     currentQuestion = 1;
     rightAnswers = 0;
     numberOfQuestions = 10;
