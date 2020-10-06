@@ -16,11 +16,13 @@ When the button is clicked to advance, the "hidden" class gets added to the Welc
 My script file is organized in three main sections: Variables, Functions, and Event listeners.
 
 * Variables
+
 I organized this section by grouping the global variables by in which "page" they occur.
 
 ![Variables](/assets/screen-shots/variables.png?raw=true "Optional Title")
 
 * Functions
+
 My first function sets the timer in the Countdown "Page".  When the timer runs out, the user is brought to the Quiz "Page". It also runs the next function that sets the timer for the quiz itself.
 
 ![Function1](/assets/screen-shots/function1.png?raw=true "Optional Title")
@@ -40,7 +42,7 @@ My fourth function displays the user's results from the quiz. This function is c
 
 
 
-*Event Listenters
+* Event Listenters
 
 My first event listener is for the quiz page. First, it listens for a click by storing the target in a variable.  Then it checks if the target is a button.  It then checks the class to see if its a right answer (which is assigned in the html file). If the class matches rightAnswer, the user gets a point, otherwise the user loses five seconds on the timer. Either way, the continueQuiz function is run to get the user to the next page.
 
