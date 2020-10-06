@@ -120,9 +120,7 @@ function displayResultsPage() {
 // This detects if the user clicks an answer button during the quiz. If they answered right, their number of right answers is updated.
     //To do! Subtract time if answer is wrong.
 quizPage.addEventListener("click", function(event) {
-        
     var button = event.target;
-
     if (button.tagName == "BUTTON") {
         var rightAnswer = button.classList;
         if (rightAnswer == "rightAnswer") {
@@ -132,14 +130,13 @@ quizPage.addEventListener("click", function(event) {
             timeLeft -= 5;
             if (timeLeft < 0) {
                 timeLeft = 0;
+                displayResultsPage();
             }
             timer.textContent = timeLeft;
         }
         if (button.matches("button")) {
             continueQuiz();
         }
-    
-
     }
 })
 
