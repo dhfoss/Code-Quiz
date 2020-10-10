@@ -222,6 +222,7 @@ restartButton.addEventListener("click", function() {
     while (hallOfFameList.firstChild) {
         hallOfFameList.removeChild(hallOfFameList.firstChild);
     }
+    tooBad.classList.add("hidden");
     input.value = "";
     hallOfFamePage.classList.add("hidden");
     welcomePage.classList.remove("hidden");
