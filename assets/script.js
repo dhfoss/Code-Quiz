@@ -41,6 +41,7 @@ var hallOfFamePage = document.querySelector("#hallOfFamePage");
 var hallOfFameList = document.querySelector("#hallOfFameList");
 var clearStorageButton = document.querySelector("#clearStorage");
 var quizAgainButton2 = document.querySelector("#quizAgain2");
+var restartButton = document.querySelector("#restartButton");
 
 
 //===========
@@ -211,5 +212,17 @@ maybeButton.addEventListener("click", function() {
 // This button clears the Hall of Fame
 clearStorageButton.addEventListener("click", function() {
     localStorage.removeItem("Hall of Fame");
-    hallOfFameList.classList.add("hidden");
+    while (hallOfFameList.firstChild) {
+        hallOfFameList.removeChild(hallOfFameList.firstChild);
+    }
+});
+
+//This button lets the user take the quiz again
+restartButton.addEventListener("click", function() {
+    while (hallOfFameList.firstChild) {
+        hallOfFameList.removeChild(hallOfFameList.firstChild);
+    }
+    input.value = "";
+    hallOfFamePage.classList.add("hidden");
+    welcomePage.classList.remove("hidden");
 });

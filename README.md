@@ -60,6 +60,10 @@ My next event listeners are for the buttons on the Welcome "Page". They simply a
 
 ![Event Listener4](/assets/screen-shots/eventListener4.png?raw=true "Optional Title")
 
-My final event listener clears the local storage, and clears the list of saved high scores on the Hall of Fame "Page".
+My next event listener clears the local storage, and clears the list of saved high scores on the Hall of Fame "Page".
 
 ![Event Listener5](/assets/screen-shots/eventListener5.png?raw=true "Optional Title")
+
+My final event listener is for the restart button. It lets the user restart the quiz. It first has to delete the list elements, and clear the form input so they don't hold over from the previous quiz.
+
+![Event Listener6](/assets/screen-shots/eventListener6.png?raw=true "Optional Title")
